@@ -58,13 +58,13 @@ class App extends Component {
     }
     if (!gameOver) {
       if (newItem.x < 0 || newItem.x === num || newItem.y < 0 || newItem.y === num) {
-        // alert('游戏结束');
+        alert('游戏结束');
         clearInterval(this.timer);
         this.setState({gameOver: true});
       } else {
         const index = findIndex(data, newItem);
         if (index !== -1) {
-          // alert('游戏结束');
+          alert('游戏结束');
           clearInterval(this.timer);
           this.setState({gameOver: true});
         } else {
