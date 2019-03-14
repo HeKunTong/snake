@@ -21,15 +21,17 @@ class App extends Component {
       }],
       gameOver: false,
       rand: {x: 5, y: 6},
-      type: 3// 0 上, 1 左, 2 下, 3 右
+      type: 3,// 0 上, 1 左, 2 下, 3 右,
+      second: 400
     };
     this.init();
   }
 
   init = () => {
+    const { second } = this.state;
     this.timer = setInterval(() => {
       this.snake();
-    }, 100);
+    }, second);
   }
 
   clear = () => {
@@ -76,7 +78,15 @@ class App extends Component {
             newData = slice(data, 1);
           }
           newData = [...newData, newItem];
-          this.setState({data: newData});
+          let time = 400;
+          if (newData.length <= 8) {
+            time = 400;
+          } else if (newData.length <= 16) {
+            time = 200;
+          } else {
+            time = 100;
+          }
+          this.setState({data: newData, second: time});
         }
       }
     }
