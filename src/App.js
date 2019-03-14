@@ -137,7 +137,7 @@ class App extends Component {
   }
 
   getItem = () => {
-    const { data, rand } = this.state;
+    const { data, rand, type } = this.state;
     let str = "";
     for (let x = 0; x < num; x++) {
       str += "<div class='row'>";
@@ -146,8 +146,13 @@ class App extends Component {
           str += "<div class='item rand'></div>";
         } else {
           let index = findIndex(data, {x, y});
+          const lastItem = last(data);
           if (index >= 0) {
-            str += "<div class='item snake'></div>";
+            if (lastItem.x === x && lastItem.y ===y) {
+              str += `<div class='item snake direct${type}'></div>`;
+            } else {
+              str += "<div class='item snake'></div>";
+            }
           } else {
             str += "<div class='item'></div>";
           }

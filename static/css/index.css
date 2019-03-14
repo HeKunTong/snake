@@ -44,3 +44,24 @@ body {
 .rand {
     background: #ff0;
 }
+
+/** 0 上, 1 左, 2 下, 3 右 **/
+.direct0 {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.direct1 {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.direct2 {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.direct3 {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
